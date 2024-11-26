@@ -14,64 +14,76 @@ class Dashboard extends StatelessWidget {
         title: const Text('Dashboard'),
       ),
       body: SafeArea(
-          child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(
-                      const Color.fromARGB(255, 233, 54, 9)),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: double.infinity, // Full-width button
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 233, 54, 9),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Arithmetic()),
+                      );
+                    },
+                    child: const Text(
+                      'Arithmetic',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Arithmetic()),
-                  );
-                },
-                child: const Text('Arithmetic'),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(
-                      const Color.fromARGB(255, 233, 54, 9)),
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity, // Full-width button
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 233, 54, 9),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const SimpleInterest()),
+                      );
+                    },
+                    child: const Text(
+                      'Simple Interest',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
-        
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const SimpleInterest()),
-                  );
-                },
-                child: const Text('Simple Interest'),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: WidgetStatePropertyAll(
-                      const Color.fromARGB(255, 233, 54, 9)),
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity, // Full-width button
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color.fromARGB(255, 9, 233, 106),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AreaOfCircle()),
+                      );
+                    },
+                    child: const Text(
+                      'Area of Circle',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AreaOfCircle()),
-                  );
-                },
-                child: const Text('Area of circle'),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 }
