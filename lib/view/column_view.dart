@@ -20,11 +20,13 @@ class ColumnView extends StatelessWidget {
               size: 50,
               color: Colors.amber,
             ),
+            Spacer(), // equal gaps ma divide gardinxa
             Icon(
               Icons.circle,
               size: 50,
               color: Colors.red,
             ),
+            Spacer(),
             Icon(
               Icons.circle,
               size: 50,
