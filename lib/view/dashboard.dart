@@ -64,7 +64,7 @@ class Dashboard extends StatelessWidget {
                   width: double.infinity, // Full-width button
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 9, 233, 106),
+                      backgroundColor: const Color.fromARGB(255, 233, 54, 9),
                     ),
                     onPressed: () {
                       Navigator.push(

@@ -11,6 +11,9 @@ class _ArithmeticState extends State<Arithmetic> {
   int first = 0;
   int second = 0;
   int result = 0;
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,105 +26,122 @@ class _ArithmeticState extends State<Arithmetic> {
           child: Padding(
             padding:
                 const EdgeInsets.all(16.0), // Add padding around the content
-            child: Column(
-              children: [
-                TextField(
-                  onChanged: (value) {
-                    first = int.parse(value);
-                  },
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter First Number', // Corrected syntax
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  TextFormField(
+                    onChanged: (value) {
+                      first = int.parse(value);
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter First Number',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter First Number';
+                      } else {
+                        return null;
+                      }
+                    },
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  onChanged: (value) {
-                    second = int.parse(value);
-                  },
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter Second Number', // Corrected syntax
+                  const SizedBox(
+                    height: 10,
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Result : $result',
-                  style: const TextStyle(fontSize: 20),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(255, 162, 205, 9)),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          result = first + second; // Calculate SI
-                        });
-                      },
-                      child: const Text(
-                        'Addition',
-                        style: TextStyle(fontSize: 20),
+                  TextFormField(
+                    onChanged: (value) {
+                      second = int.parse(value);
+                    },
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Enter Second Number',
+                    ),
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Enter Second Number';
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    'Result : $result',
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              const Color.fromARGB(255, 162, 205, 9)),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            result = first + second; // Calculate SI
+                          });
+                        },
+                        child: const Text(
+                          'Addition',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(255, 162, 205, 9)),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          result = first - second; // Calculate SI
-                        });
-                      },
-                      child: const Text(
-                        'Subtraction',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor: WidgetStatePropertyAll(
-                            const Color.fromARGB(255, 162, 205, 9)),
-                      ),
-                      onPressed: () {
-                        setState(() {
-                          result = first * second; // Calculate SI
-                        });
-                      },
-                      child: const Text(
-                        'Multplication',
-                        style: TextStyle(fontSize: 20),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              const Color.fromARGB(255, 162, 205, 9)),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            result = first - second; // Calculate SI
+                          });
+                        },
+                        child: const Text(
+                          'Subtraction',
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll(
+                              const Color.fromARGB(255, 162, 205, 9)),
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            result = first * second; // Calculate SI
+                          });
+                        },
+                        child: const Text(
+                          'Multplication',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
