@@ -1,4 +1,4 @@
-import 'package:assig/view/column_view.dart';
+import 'package:assig/view/load_image_view.dart';
 import 'package:flutter/material.dart';
 
 class Myapp extends StatelessWidget {
@@ -8,7 +8,7 @@ class Myapp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: ColumnView(),
+      home: LoadImageView(),
     );
   }
 }
