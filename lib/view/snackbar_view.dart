@@ -1,4 +1,4 @@
-import 'package:assig/common/show_my_snackbar.dart';
+import 'package:assig/core/common/show_my_snackbar.dart';
 import 'package:flutter/material.dart';
 
 class SnackbarView extends StatelessWidget {
