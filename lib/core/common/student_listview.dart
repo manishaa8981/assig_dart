@@ -1,4 +1,5 @@
 import 'package:assig/model/student.dart';
+import 'package:assig/view/student_single_view.dart';
 import 'package:flutter/material.dart';
 
 class StudentListView extends StatelessWidget {
@@ -17,15 +18,23 @@ class StudentListView extends StatelessWidget {
         itemCount: lstStudents.length,
         itemBuilder: (context, index) {
           return ListTile(
-            leading: const Icon(Icons.circle),
-            title:
-                Text('${lstStudents[index].fname} ${lstStudents[index].lname}'),
-            subtitle: Text(lstStudents[index].city),
-            trailing: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.delete),
-            ),
-          );
+              leading: const Icon(Icons.circle),
+              title: Text(
+                  '${lstStudents[index].fname} ${lstStudents[index].lname}'),
+              subtitle: Text(lstStudents[index].city),
+              trailing: IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.delete),
+              ),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        StudentSingleView(student: lstStudents[index]),
+                  ),
+                );
+              });
         },
       ),
     );
