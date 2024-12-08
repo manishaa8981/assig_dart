@@ -1,4 +1,4 @@
-import 'package:assig/view/classwork_erercise_view.dart';
+import 'package:assig/core/common/card_view.dart';
 import 'package:flutter/material.dart';
 
 class Myapp extends StatelessWidget {
@@ -7,7 +7,7 @@ class Myapp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ClassworkErerciseView(),
+      home: CardView(),
     );
   }
 }

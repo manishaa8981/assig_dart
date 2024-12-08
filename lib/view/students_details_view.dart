@@ -115,7 +115,6 @@ class _StudentDetailsViewState extends State<StudentDetailsView> {
       ),
     );
   }
-
   @override
   void dispose() {
     _fnameController.dispose();

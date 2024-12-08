@@ -32,7 +32,7 @@ class FlexibleExpandedView extends StatelessWidget {
               flex: 2,
               // fit: FlexFit.tight, // default loose ho , yo flex ko property ho flexible use na garna paros vanera expaded use gareko
               child: SizedBox(
-                // height: 300,
+                height: 300,
                 width: double.infinity,
                 child: Container(
                   color: Colors.blue,
